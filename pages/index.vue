@@ -8,6 +8,12 @@
                         login
                     </nuxt-link>
                 </li>
+                <li>
+                    <nuxt-link
+                        to="/profile">
+                        profile
+                    </nuxt-link>
+                </li>
             </ul>
         </nav>
     </main>

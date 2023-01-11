@@ -35,6 +35,10 @@
 
 <script setup>
 import { useCustomFetch } from '~/composables/useCustomFetch.js';
+import { useAuth } from '~/store/auth.js';
+
+const router = useRouter();
+const auth = useAuth();
 
 const form = ref({
     email: '',
@@ -57,7 +61,10 @@ const login = () => {
                 console.log(error.value);
             }
             else {
-                console.log(data.value);
+                const { user, token } = data.value;
+                auth.setUser(user);
+                auth.setToken(token);
+                router.push('/');
             }
         })
         .finally(() => {

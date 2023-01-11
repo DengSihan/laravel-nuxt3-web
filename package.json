@@ -9,5 +9,10 @@
     },
     "devDependencies": {
         "nuxt": "^3.0.0"
+    },
+    "dependencies": {
+        "@pinia/nuxt": "^0.4.6",
+        "js-cookie": "^3.0.1",
+        "pinia": "^2.0.28"
     }
 }

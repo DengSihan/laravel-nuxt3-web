@@ -7,6 +7,10 @@ export default defineNuxtConfig({
         },
     },
 
+    modules: [
+        '@pinia/nuxt',
+    ],
+
     vite: {
         server: {
             watch: {
