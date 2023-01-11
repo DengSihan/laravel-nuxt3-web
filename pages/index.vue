@@ -10,6 +10,12 @@
                 </li>
                 <li>
                     <nuxt-link
+                        to="/register">
+                        register
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link
                         to="/profile">
                         profile
                     </nuxt-link>
