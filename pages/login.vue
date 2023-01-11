@@ -37,6 +37,10 @@
 import { useCustomFetch } from '~/composables/useCustomFetch.js';
 import { useAuth } from '~/store/auth.js';
 
+definePageMeta({
+    middleware: ['guest'],
+});
+
 const router = useRouter();
 const auth = useAuth();
 
@@ -64,7 +68,7 @@ const login = () => {
                 const { user, token } = data.value;
                 auth.setUser(user);
                 auth.setToken(token);
-                router.push('/');
+                router.push('/profile');
             }
         })
         .finally(() => {

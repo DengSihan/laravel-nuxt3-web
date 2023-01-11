@@ -16,7 +16,7 @@ export const useAuth = defineStore('auth', {
         user() {
             return this._user;
         },
-        isAuthenticated() {
+        isAuthed() {
             return Object.keys(this._user).length > 0;
         },
     },

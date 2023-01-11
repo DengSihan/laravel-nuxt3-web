@@ -22,5 +22,9 @@
 <script setup>
 import { useAuth } from '~/store/auth.js';
 
+definePageMeta({
+    middleware: ['auth'],
+});
+
 const { user } = useAuth();
 </script>
