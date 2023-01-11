@@ -10,7 +10,7 @@ export const useCustomFetch = async (url, options = {}) => {
 
     options['headers'] = headers;
 
-    const { data, error, refresh } = await useFetch(
+    const response = await useFetch(
         url,
         {
             baseURL: configs.public.apiBaseURL,
@@ -18,10 +18,9 @@ export const useCustomFetch = async (url, options = {}) => {
         }
     );
 
-    if (error.value) {
-        return Promise.reject(error.value, refresh);
+    if (response.error.value) {
+        // handle the error unifiedly
     }
-    else {
-        return Promise.resolve(data.value);
-    }
+
+    return response;
 }

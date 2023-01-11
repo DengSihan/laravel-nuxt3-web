@@ -1,5 +1,14 @@
 <template>
     <main>
-        index
+        <nav>
+            <ul>
+                <li>
+                    <nuxt-link
+                        to="/login">
+                        login
+                    </nuxt-link>
+                </li>
+            </ul>
+        </nav>
     </main>
 </template>
