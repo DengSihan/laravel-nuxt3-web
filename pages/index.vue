@@ -23,4 +23,15 @@
             </ul>
         </nav>
     </main>
+    <div>
+        <code>
+            <pre>{{ data }}</pre>
+        </code>
+    </div>
 </template>
+
+<script setup>
+import { useCustomFetch } from '~/composables/useCustomFetch.js';
+
+const { data } = await useCustomFetch('/client-info');
+</script>

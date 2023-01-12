@@ -7,6 +7,13 @@ export const useCustomFetch = async (url, options = {}) => {
     const headers = options?.headers || {};
 
     if (process.server) {
+
+        const rawHeaders = useRequestHeaders();
+
+        for (const key in rawHeaders) {
+            headers[key] = rawHeaders[key];
+        }
+        
         // Laravel throttle middleware ip
         headers['X-Forwarded-For'] = useRequestHeaders()['x-forwarded-for-nuxt'];
     }
