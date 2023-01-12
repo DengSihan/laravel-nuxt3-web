@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             apiBaseURL: process.env.API_BASE_URL || 'http://laravel-nuxt3.test/api',
+            availableSocialProviders: (process.env.AVAILABLE_SOCIAL_PROVIDERS || 'google,facebook').split(','),
         },
     },
 

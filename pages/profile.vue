@@ -4,7 +4,7 @@
     </main>
     <div>
         <code>
-            <pre>{{ user }}</pre>
+            <pre>{{ auth.user }}</pre>
         </code>
     </div>
     <nav>
@@ -17,6 +17,15 @@
             </li>
         </ul>
     </nav>
+    <form
+        @submit.prevent="logout">
+        <button
+            :disabled="loading"
+            type="submit">
+            logout
+        </button>
+    </form>
+
 </template>
 
 <script setup>
@@ -26,5 +35,11 @@ definePageMeta({
     middleware: ['auth'],
 });
 
-const { user } = useAuth();
+const auth = useAuth();
+const router = useRouter();
+
+const logout = async () => {
+    await auth.logout();
+    router.push('/login');
+};
 </script>

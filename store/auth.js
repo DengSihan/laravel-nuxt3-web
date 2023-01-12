@@ -24,7 +24,7 @@ export const useAuth = defineStore('auth', {
     actions: {
         setToken(token) {
             this._token = token;
-            cookie.set('token', token);
+            cookie.set('token', token, { expires: 7 });
         },
         setUser(user) {
             this._user = user;
@@ -43,6 +43,17 @@ export const useAuth = defineStore('auth', {
                 this.setUser(data.value);
             }
         },
+        async logout() {
+            const { error } = await useCustomFetch(
+                '/auth/token',
+                {
+                    method: 'DELETE',
+                }
+            );
+            if (!error.value) {
+                this.reset();
+            }
+        }
     },
 
 });

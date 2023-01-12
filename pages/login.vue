@@ -30,6 +30,10 @@
             </button>
             
         </form>
+
+        <footer>
+            <auth-socials/>
+        </footer>
     </main>
 </template>
 
@@ -42,6 +46,7 @@ definePageMeta({
 });
 
 const router = useRouter();
+const route = useRoute();
 const auth = useAuth();
 
 const form = ref({
@@ -68,7 +73,9 @@ const login = () => {
                 const { user, token } = data.value;
                 auth.setUser(user);
                 auth.setToken(token);
-                router.push('/profile');
+                router.push(
+                    route.query?.redirect || '/'
+                );
             }
         })
         .finally(() => {
