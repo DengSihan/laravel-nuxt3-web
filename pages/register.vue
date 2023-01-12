@@ -54,6 +54,17 @@
             </button>
             
         </form>
+
+        <nav>
+            <ul>
+                <li>
+                    <nuxt-link
+                        to="/">
+                        index
+                    </nuxt-link>
+                </li>
+            </ul>
+        </nav>
     </main>
 </template>
 

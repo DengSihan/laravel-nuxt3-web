@@ -7,7 +7,7 @@
             :action="`${apiBaseURL}/auth/social/${provider}/tokens`">
             <button
                 type="submit">
-                {{ provider }}
+                login via {{ provider }} account
             </button>
         </form>
     </div>

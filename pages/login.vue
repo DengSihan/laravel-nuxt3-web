@@ -31,9 +31,22 @@
             
         </form>
 
+        <hr>
+
         <footer>
             <auth-socials/>
         </footer>
+
+        <nav>
+            <ul>
+                <li>
+                    <nuxt-link
+                        to="/">
+                        index
+                    </nuxt-link>
+                </li>
+            </ul>
+        </nav>
     </main>
 </template>
 
