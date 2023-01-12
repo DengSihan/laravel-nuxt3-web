@@ -5,10 +5,15 @@
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
-        "postinstall": "nuxt prepare"
+        "postinstall": "nuxt prepare",
+        "test": "vitest",
+        "test:coverage": "vitest run --coverage"
     },
     "devDependencies": {
-        "nuxt": "^3.0.0"
+        "@nuxt/test-utils": "^3.0.0",
+        "@vitest/coverage-c8": "^0.27.1",
+        "nuxt": "^3.0.0",
+        "vitest": "^0.27.1"
     },
     "dependencies": {
         "@pinia/nuxt": "^0.4.6",
