@@ -10,7 +10,17 @@ export default defineNuxtConfig({
 
     modules: [
         '@pinia/nuxt',
+        '@nuxtjs/tailwindcss',
     ],
+
+    css: [
+        '@mdi/font/css/materialdesignicons.css',
+        '~/assets/css/app.scss',
+    ],
+
+    tailwindcss: {
+        exposeConfig: true
+    },
 
     vite: {
         server: {

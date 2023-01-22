@@ -1,53 +1,49 @@
 <template>
-    <main>
-        <form
-            @submit.prevent="login">
-            
-            <label
-                for="email">
-                email
-            </label>
-            <input
-                id="email"
-                type="email"
-                v-model="form.email"
-                required>
 
-            <label
-                for="password">
-                password
-            </label>
-            <input
-                id="password"
-                type="password"
-                v-model="form.password"
-                required>
+    <nav
+        class="my-4">
+        <nuxt-link
+            to="/">
+            <i
+                class="mdi mdi-home"></i>
+            index
+        </nuxt-link>
+    </nav>
 
-            <button
-                type="submit"
-                :disabled="loading">
-                login
-            </button>
-            
-        </form>
+    <form
+        class="my-4"
+        @submit.prevent="login">
 
-        <hr>
+        <custom-input
+            placeholder="Email"
+            name="email"
+            type="email"
+            v-model="form.email"
+            required/>
+        
+        <custom-input
+            placeholder="Password"
+            name="password"
+            type="password"
+            v-model="form.password"
+            required/>
 
-        <footer>
-            <auth-socials/>
-        </footer>
+        <button
+            type="submit"
+            class="btn bg-blue-500 hover:bg-blue-600 text-white"
+            :disabled="loading">
+            login
+            <i
+                class="mdi mdi-login-variant"></i>
+        </button>
+        
+    </form>
 
-        <nav>
-            <ul>
-                <li>
-                    <nuxt-link
-                        to="/">
-                        index
-                    </nuxt-link>
-                </li>
-            </ul>
-        </nav>
-    </main>
+    <hr
+        class="my-4">
+        
+    <auth-socials/>
+
 </template>
 
 <script setup>

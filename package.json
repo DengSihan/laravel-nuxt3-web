@@ -11,13 +11,17 @@
     },
     "devDependencies": {
         "@nuxt/test-utils": "^3.0.0",
+        "@nuxtjs/tailwindcss": "^6.2.0",
         "@vitest/coverage-c8": "^0.27.1",
         "nuxt": "^3.0.0",
+        "sass": "^1.57.1",
         "vitest": "^0.27.1"
     },
     "dependencies": {
+        "@mdi/font": "^7.1.96",
         "@pinia/nuxt": "^0.4.6",
         "js-cookie": "^3.0.1",
+        "lodash": "^4.17.21",
         "pinia": "^2.0.28"
     }
 }

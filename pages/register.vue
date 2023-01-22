@@ -1,71 +1,62 @@
 <template>
-    <main>
-        <form
-            @submit.prevent="register">
 
-            <label
-                for="name">
-                name
-            </label>
-            <input
-                id="name"
-                type="text"
-                name="name"
-                v-model="form.name"
-                required>
-            
-            <label
-                for="email">
-                email
-            </label>
-            <input
-                id="email"
-                type="email"
-                name="email"
-                v-model="form.email"
-                required>
+    <nav
+        class="my-4">
+        <nuxt-link
+            to="/">
+            <i
+                class="mdi mdi-home"></i>
+            index
+        </nuxt-link>
+    </nav>
 
-            <label
-                for="password">
-                password
-            </label>
-            <input
-                id="password"
-                type="password"
-                name="password"
-                v-model="form.password"
-                required>
+    <form
+        class="my-4"
+        @submit.prevent="register">
 
-            <label
-                for="password_confirmation">
-                password confirmation
-            </label>
-            <input
-                id="password_confirmation"
-                type="password"
-                name="password_confirmation"
-                v-model="form.password_confirmation"
-                required>
+        <custom-input
+            name="name"
+            placeholder="Name"
+            v-model="form.name"
+            required/>
 
-            <button
-                type="submit"
-                :disabled="loading">
-                register
-            </button>
-            
-        </form>
+        <custom-input
+            placeholder="Email"
+            name="email"
+            type="email"
+            v-model="form.email"
+            required/>
+        
+        <custom-input
+            placeholder="Password"
+            name="password"
+            type="password"
+            v-model="form.password"
+            required/>
 
-        <nav>
-            <ul>
-                <li>
-                    <nuxt-link
-                        to="/">
-                        index
-                    </nuxt-link>
-                </li>
-            </ul>
-        </nav>
-    </main>
+        <custom-input
+            placeholder="Password Confirmation"
+            name="password-confirmation"
+            type="password"
+            v-model="form.password_confirmation"
+            required/>
+
+        <button
+            type="submit"
+            class="btn bg-blue-500 hover:bg-blue-600 text-white"
+            :disabled="loading">
+            register
+            <i
+                class="mdi mdi-account-plus"></i>
+        </button>
+        
+    </form>
+
+    <hr
+        class="my-4">
+        
+    <auth-socials/>
+    
 </template>
 
 <script setup>

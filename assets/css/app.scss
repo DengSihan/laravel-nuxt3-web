@@ -1,0 +1,7 @@
+a {
+    @apply no-underline hover:underline text-slate-900 hover:text-blue-600;
+}
+
+.btn {
+    @apply transition-[background,transform] shadow scale-100 hover:scale-[102%] active:scale-[98%] px-4 py-2 rounded;
+}

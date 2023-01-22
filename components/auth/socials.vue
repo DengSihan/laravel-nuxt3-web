@@ -1,13 +1,18 @@
 <template>
-    <div>
+    <div
+        class="my-4">
         <form
             v-for="provider in availableSocialProviders"
             :key="provider"
             method="POST"
             :action="`${apiBaseURL}/auth/social/${provider}/tokens`">
             <button
+                class="btn bg-slate-800 hover:bg-slate-900 text-white"
                 type="submit">
-                login via {{ provider }} account
+                <i
+                    class="mdi"
+                    :class="`mdi-${provider}`"></i>
+                login via {{ provider }}
             </button>
         </form>
     </div>
