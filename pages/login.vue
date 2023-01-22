@@ -19,6 +19,7 @@
             name="email"
             type="email"
             v-model="form.email"
+            v-model:errors="errors.email"
             required/>
         
         <custom-input
@@ -26,6 +27,7 @@
             name="password"
             type="password"
             v-model="form.password"
+            v-model:errors="errors.password"
             required/>
 
         <button
@@ -63,6 +65,11 @@ const form = ref({
     password: '',
 });
 
+const errors = ref({
+    email: [],
+    password: [],
+});
+
 const loading = ref(false);
 
 const login = () => {
@@ -74,9 +81,12 @@ const login = () => {
                 body: form.value,
             }
         )
-        .then(({data, error}) => {
-            if (error.value) {
-                console.log(error.value);
+        .then(({data, error: httpErrors}) => {
+            if (httpErrors.value) {
+                errors.value = {
+                    ...errors.value,
+                    ...httpErrors.value.data.errors
+                };
             }
             else {
                 const { user, token } = data.value;

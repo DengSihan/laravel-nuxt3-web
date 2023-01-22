@@ -18,6 +18,7 @@
             name="name"
             placeholder="Name"
             v-model="form.name"
+            v-model:errors="errors.name"
             required/>
 
         <custom-input
@@ -25,6 +26,7 @@
             name="email"
             type="email"
             v-model="form.email"
+            v-model:errors="errors.email"
             required/>
         
         <custom-input
@@ -32,6 +34,7 @@
             name="password"
             type="password"
             v-model="form.password"
+            v-model:errors="errors.password"
             required/>
 
         <custom-input
@@ -39,6 +42,7 @@
             name="password-confirmation"
             type="password"
             v-model="form.password_confirmation"
+            v-model:errors="errors.password_confirmation"
             required/>
 
         <button
@@ -77,6 +81,13 @@ const form = ref({
     password_confirmation: '',
 });
 
+const errors = ref({
+    name: [],
+    email: [],
+    password: [],
+    password_confirmation: [],
+});
+
 const loading = ref(false);
 
 const register = () => {
@@ -88,9 +99,12 @@ const register = () => {
                 body: form.value,
             }
         )
-        .then(({data, error}) => {
-            if (error.value) {
-                console.log(error.value);
+        .then(({data, error: httpErrors}) => {
+            if (httpErrors.value) {
+                errors.value = {
+                    ...errors.value,
+                    ...httpErrors.value.data.errors
+                };
             }
             else {
                 const { user, token } = data.value;
