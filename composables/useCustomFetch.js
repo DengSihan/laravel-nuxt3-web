@@ -8,11 +8,18 @@ export const useCustomFetch = async (url, options = {}) => {
 
     if (process.server) {
 
+        // don't pass all headers to server side or it may trigger the thorottle middleware wrongly
         const rawHeaders = useRequestHeaders();
-
-        for (const key in rawHeaders) {
-            headers[key] = rawHeaders[key];
-        }
+        [
+            'accept-language',
+            'accept-encoding',
+            'accept',
+            'user-agent',
+            'cache-control',
+            'referer',
+        ].forEach((key) => {
+            headers[key.toUpperCase()] = rawHeaders[key];
+        });
         
         // Laravel throttle middleware ip
         headers['X-Forwarded-For'] = useRequestHeaders()['x-forwarded-for-nuxt'];
