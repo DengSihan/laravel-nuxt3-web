@@ -18,11 +18,14 @@ export const useCustomFetch = async (url, options = {}) => {
             'cache-control',
             'referer',
         ].forEach((key) => {
-            headers[key.toUpperCase()] = rawHeaders[key];
+            if (rawHeaders[key]) {
+                headers[key] = rawHeaders[key];
+            }
         });
         
         // Laravel throttle middleware ip
-        headers['X-Forwarded-For'] = useRequestHeaders()['x-forwarded-for-nuxt'];
+        headers['X-Forwarded-For'] = rawHeaders['cf-connecting-ip']
+            || rawHeaders['x-forwarded-for-nuxt'];
     }
 
     if (auth.token) {
