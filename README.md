@@ -71,6 +71,10 @@ else
 fi
 ```
 
+## Todos
+
+- Typescript
+- Impove Test Coverage
 
 
 
