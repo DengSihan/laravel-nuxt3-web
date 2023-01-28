@@ -24,8 +24,7 @@ export const useCustomFetch = async (url, options = {}) => {
         });
         
         // Laravel throttle middleware ip
-        headers['X-Forwarded-For'] = rawHeaders['cf-connecting-ip']
-            || rawHeaders['x-forwarded-for-nuxt'];
+        headers['X-Forwarded-For'] = rawHeaders['x-forwarded-for-nuxt'];
     }
 
     if (auth.token) {
