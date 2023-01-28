@@ -90,7 +90,7 @@
 </template>
 
 <script setup>
-import { omit, pick } from 'lodash';
+import lodash from 'lodash';
 import { useAttrs } from 'vue';
 
 const props = defineProps({
@@ -154,11 +154,11 @@ const inputIsDescribedBy = computed(() => {
 const attrs = useAttrs();
 
 const attrsClassStyleOnly = computed(() => {
-    return pick(attrs, ['class', 'style']);
+    return lodash.pick(attrs, ['class', 'style']);
 });
 
 const attrsWithoutClassStyle = computed(() => {
-    return omit(attrs, ['class', 'style']);
+    return lodash.omit(attrs, ['class', 'style']);
 });
 
 
